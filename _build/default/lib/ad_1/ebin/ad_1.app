@@ -3,7 +3,7 @@
               {vsn,"0.1.0"},
               {registered,[]},
               {mod,{ad_1_app,[]}},
-              {applications,[kernel,stdlib]},
+              {applications,[kernel,stdlib,ad_2,erl_port]},
               {env,[]},
               {modules,[ad_1,ad_1_app,ad_1_sup]},
               {licenses,["Apache-2.0"]},

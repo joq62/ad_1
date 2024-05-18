@@ -28,11 +28,21 @@ start()->
     io:format("Start ~p~n",[{?MODULE,?FUNCTION_NAME,?LINE}]),
     
     ok=setup(),
+    ok=python(),
     io:format("Test OK !!! ~p~n",[?MODULE]),
 %    timer:sleep(1000),
 %    init:stop(),
     ok.
-
+%%--------------------------------------------------------------------
+%% @doc
+%% 
+%% @end
+%%--------------------------------------------------------------------
+python()->
+    io:format("Start ~p~n",[{?MODULE,?FUNCTION_NAME}]),
+    {ok,P}=python:start([{python,"python3"},{python_path,["py"]}]),
+    4=2+python:call(P,xx,add,[20,22]),
+ok.
 
 %% --------------------------------------------------------------------
 %% Function: available_hosts()
@@ -45,4 +55,6 @@ setup()->
     
     ok=application:start(ad_1),
     pong=ad_1:ping(),
+    ok=application:start(ad_2),
+    pong=ad_2:ping(),
     ok.

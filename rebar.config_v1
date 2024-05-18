@@ -4,7 +4,9 @@
 	   {i,"_build/default/lib/*/include"},
             {d, 'EDOC', [{doc_path, "doc"}]}]}.
 {deps, [
-     
+       {erlport,".*",{git,"https://github.com/erlport/erlport.git","master"}},
+       {ad_2,{git,"https://github.com/joq62/ad_2.git",{branch,"main"}}}
+       
        ]}.
 {edoc_opts, [
   %  {doclet, edown_doclet},
