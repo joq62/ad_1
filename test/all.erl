@@ -41,6 +41,7 @@ start()->
 setup()->
     io:format("Start ~p~n",[{?MODULE,?FUNCTION_NAME}]),
     
+ %   kk=ad_1:start_link(),
     ok=application:start(ad_1),
     pong=ad_1:ping(),
     ok.

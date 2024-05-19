@@ -64,11 +64,12 @@ start_link() ->
 	  {stop, Reason :: term()} |
 	  ignore.
 init([]) ->
-    process_flag(trap_exit, true),
+ %   process_flag(trap_exit, true),
+    io:format("~p~n",[{?MODULE,?LINE}]),
     {ok, #state{}}.
 
 %%--------------------------------------------------------------------
-%% @private
+%% @privatew
 %% @doc
 %% Handling call messages
 %% @end

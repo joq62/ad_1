@@ -119,8 +119,7 @@ eunit:
 #	rm -rf _build*;
 	#INFO: Starts the eunit testing .................
 	erl -pa _build/default/lib/ad_1/ebin\
-	 -pa _build/default/lib/ad_2/ebin\
-	 -pa _build/default/lib/erlport/ebin\
+	 -pa ebin\
 	 -pa test_ebin\
 	 -sname ad_1_a\
 	 -run $(m) start\

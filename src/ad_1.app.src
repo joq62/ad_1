@@ -5,9 +5,7 @@
   {mod, {ad_1_app, []}},
   {applications,
    [kernel,
-    stdlib,
-    ad_2,
-    erl_port
+    stdlib
    ]},
   {env,[]},
   {modules, []},
