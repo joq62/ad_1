@@ -118,9 +118,9 @@ eunit:
 #	cp _build/default/lib/*/ebin/* ebin;
 #	rm -rf _build*;
 	#INFO: Starts the eunit testing .................
-	erl -pa _build/default/lib/ad_1/ebin\
+	erl -pa _build/default/lib/ad_2/ebin\
 	 -pa ebin\
 	 -pa test_ebin\
-	 -sname ad_1_a\
+	 -sname test_ad_1_a\
 	 -run $(m) start\
 	 -setcookie a
