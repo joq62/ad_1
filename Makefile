@@ -2,7 +2,7 @@ all:
 	#INFO: with_ebin_commit STARTED
 	#INFO: Cleaning up to prepare build STARTED	 
 	#INFO: Deleting crash reports
-	rm -rf erl_cra* rebar3_crashreport_GLURK;
+	rm -rf erl_cra* rebar3_crashreport;
 	#INFO: Deleting euinit test applications dirs
 	rm -rf log resource_discovery etcd;
 	rm -rf inventory;
@@ -31,6 +31,25 @@ all:
 	git status
 	echo Ok there you go!
 	#INFO: no_ebin_commit ENDED SUCCESSFUL
+rel:
+	#INFO: Build a release and tar ball
+#	related to dev and  testing
+	rm -rf *~ */*~ */*/*~
+	rm -rf erl_cra* rebar3_crashreport;
+	rm -rf *.beam */*.beam */*/*.beam;
+	rm -rf Mnesia*;
+	rm -rf logs;
+	rm -rf ebin test_ebin;
+#	related to build
+	rm -rf rebar.lock;
+	rm -rf _build* release;
+#	build
+	rebar3 compile
+	rebar3 release;
+	rebar3 as prod tar;
+	mkdir release;
+	cp _build/prod/rel/ad_1_rel/*.tar.gz release/ad_1.tar.gz;
+	rm -rf _build*;
 build:
 	#INFO: with_ebin_commit STARTED
 	#INFO: Cleaning up to prepare build STARTED	 
