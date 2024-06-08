@@ -35,6 +35,15 @@
 ping()-> 
     gen_server:call(?SERVER, {ping},infinity).
 
+%%--------------------------------------------------------------------
+%% @doc
+%% 
+%% @end
+%%--------------------------------------------------------------------
+-spec add(A::integer(),B::integer()) -> Sum::integer() | Error::term().
+add(A,B)-> 
+    gen_server:call(?SERVER, {add,A,B},infinity).
+
 
 %%--------------------------------------------------------------------
 %% @doc
@@ -85,6 +94,10 @@ init([]) ->
 	  {stop, Reason :: term(), NewState :: term()}.
 
 
+
+handle_call({add,A,B}, _From, State) ->
+    Reply=A+B,
+    {reply, Reply, State};
 
 handle_call({ping}, _From, State) ->
     Reply=pong,
